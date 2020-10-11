@@ -3,18 +3,18 @@ from sklearn.tree import DecisionTreeRegressor
 import bagusformat as bf
 
 path = 'C:/Users/octavianus.bagus/Documents/Python/kaggle/melb_data.csv'
-data = pd.read_csv(path)
+melb_data = pd.read_csv(path)
 
-show = data.columns
+show = melb_data.columns
 print(show)
 bf.f01()
 
-y = data.Price
+y = melb_data.Price
 print(y)
 bf.f01()
 
 features = ['Rooms', 'Bathroom', 'Landsize', 'Lattitude', 'Longtitude']
-X = data[features]
+X = melb_data[features]
 print(X)
 bf.f01()
 
@@ -29,13 +29,13 @@ bf.f01()
 print("\
 ============================  model using scikit-learn ==========================\n")
 
-model = DecisionTreeRegressor(random_state = 1)
+melb_model = DecisionTreeRegressor(random_state = 1)
 
-DTR = model.fit(X, y)
+DTR = melb_model.fit(X, y)
 print(DTR)
 bf.f01()
 
 print("Making predictions for the following 5 houses: ")
 print(hd)
 print("The predictions are (this is still using given data): ")
-print(model.predict(hd), "\n")
+print(melb_model.predict(hd), "\n")
