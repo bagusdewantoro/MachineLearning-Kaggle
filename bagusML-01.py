@@ -3,8 +3,11 @@ from sklearn.tree import DecisionTreeRegressor
 import bagusformat as bf
 from sys import argv
 
-path = 'C:/Users/octavianus.bagus/Documents/Python/kaggle/nwp_inv.csv'
+path = 'C:/Users/octavianus.bagus/Documents/Python/kaggle/nwp_data.csv'
+#nwp_data = pd.read_csv(path, thousands=r',')
 nwp_data = pd.read_csv(path)
+nwp_data = nwp_data.dropna(axis=0)
+nwp_data = nwp_data.fillna(0)
 
 print(nwp_data.columns)
 bf.f01()
@@ -23,7 +26,7 @@ bf.f01()
 nama_kolom = []
 jumlah_kolom = int(input("Masukkan jumlah kolom : "))
 for masukkan in range(jumlah_kolom):
-    namadata = str(input())
+    namadata = str(input("Masukkan nama kolom : "))
     nama_kolom.append(namadata)
 print(nama_kolom)
 bf.f01()

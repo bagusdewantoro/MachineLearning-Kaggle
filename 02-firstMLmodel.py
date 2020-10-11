@@ -1,9 +1,12 @@
 import pandas as pd
 from sklearn.tree import DecisionTreeRegressor
+from sklearn.metrics import mean_absolute_error
 import bagusformat as bf
 
 path = 'C:/Users/octavianus.bagus/Documents/Python/kaggle/melb_data.csv'
 melb_data = pd.read_csv(path)
+melb_data = melb_data.dropna(axis=0)
+melb_data = melb_data.fillna(0)
 
 show = melb_data.columns
 print(show)
